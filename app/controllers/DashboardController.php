@@ -24,4 +24,26 @@ class DashboardController extends \BaseController
     {
         return View::make('login');
     }
+
+    public function anyAjax()
+    {
+        if (!\Request::Ajax()) {
+            return \App::abort(404);
+        }
+
+        $method = 'get';
+        $cMethod = $method . ucwords(\Input::get('requested'));
+        echo $cMethod;
+        
+        if (\Input::get('requested') === '/'
+            || \Input::get('requested') === 'dashboard'
+        ) {
+            return $this->getDashboard();
+        } else if (method_exists($this, $cMethod)) {
+            return $this->$cMethod();
+        }
+
+
+        return 'true';
+    }
 }

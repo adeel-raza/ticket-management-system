@@ -9,11 +9,13 @@
         history.pushState(null, null, $(this).attr('href'));
 
         $.ajax({
-            type: 'GET',
-            url: '/',
-            data: {},
-            success: function () {
-
+            type: 'POST',
+            url: '/ajax',
+            data: {
+                requested: $(this).attr('href')
+            },
+            success: function (data) {
+                console.log(data);
             }
         });
     });
