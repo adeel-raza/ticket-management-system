@@ -33,17 +33,11 @@ class DashboardController extends \BaseController
 
         $method = 'get';
         $cMethod = $method . ucwords(\Input::get('requested'));
-        echo $cMethod;
-        
-        if (\Input::get('requested') === '/'
-            || \Input::get('requested') === 'dashboard'
-        ) {
-            return $this->getDashboard();
-        } else if (method_exists($this, $cMethod)) {
+
+        if (method_exists($this, $cMethod)) {
             return $this->$cMethod();
         }
 
-
-        return 'true';
+        return $this->getDashboard();
     }
 }

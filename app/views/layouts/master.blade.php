@@ -8,7 +8,10 @@
 
     <title>Dashboard - SB Admin</title>
 
-    {{ stylesheet_link_tag() }}
+    {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/sb-admin.css') }}
+    {{ HTML::style('css/css/font-awesome.min.css') }}
+
 </head>
 
 <body>
@@ -29,7 +32,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li class="active"><a href="{{ url('') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li><a href="{{ url('charts') }}"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
                 <li><a href="{{ url('tables') }}"><i class="fa fa-table"></i> Tables</a></li>
                 <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
@@ -123,7 +126,8 @@
 </div>
 <!-- /#wrapper -->
 
-{{ javascript_include_tag() }}
-
+{{ HTML::script('js/jquery.min.js') }}
+{{ HTML::script('js/bootstrap.min.js') }}
+{{ HTML::script('js/init.js') }}
 </body>
 </html>
