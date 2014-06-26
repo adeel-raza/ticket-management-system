@@ -1,3 +1,4 @@
+@if (!$isAjax)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +120,9 @@
     </nav>
 
     <div id="page-wrapper">
-        @yield('page-wrapper')
+        @section('page-wrapper')
+
+        @show
     </div>
     <!-- /#page-wrapper -->
 
@@ -131,3 +134,4 @@
 {{ HTML::script('js/init.js') }}
 </body>
 </html>
+@endif

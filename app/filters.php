@@ -13,7 +13,7 @@
 
 App::before(function($request)
 {
-	//
+	View::share('isAjax', Request::Ajax());
 });
 
 
@@ -87,4 +87,17 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+/**
+ * Custom 404 page
+ */
+App::missing(function($exception)
+{
+    return Response::view('error404', array(), 404);
+});
+
+App::error(function(Exception $exception)
+{
+    return Response::view('error404', array(), 404);
 });

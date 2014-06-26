@@ -10,11 +10,6 @@ class DashboardController extends \BaseController
         return View::make('dashboard');
     }
 
-    public function getDashboard()
-    {
-        return View::make('dashboard');
-    }
-
     public function getCharts()
     {
         return View::make('charts');
@@ -31,13 +26,17 @@ class DashboardController extends \BaseController
             return \App::abort(404);
         }
 
-        $method = 'get';
-        $cMethod = $method . ucwords(\Input::get('requested'));
+        $method = \Request::method();
 
-        if (method_exists($this, $cMethod)) {
-            return $this->$cMethod();
+        $requested = \Input::get('requested');
+
+        if (empty($requested)) {
+            return \Redirect::action(__CLASS__ . '@getIndex');
         }
 
-        return $this->getDashboard();
+        $requested = camel_case('@' . strtolower($method) . '_' . $requested);
+
+        return \Redirect::action(__CLASS__ . $requested);
+
     }
 }
