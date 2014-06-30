@@ -94,10 +94,10 @@ Route::filter('csrf', function()
  */
 App::missing(function($exception)
 {
-    return Response::view('error404', array(), 404);
+   // return Response::view('error404', array(), 404);
 });
 
 App::error(function(Exception $exception)
 {
-    return Response::view('error404', array(), 404);
+//    return Response::view('error404', array(), 404);
 });

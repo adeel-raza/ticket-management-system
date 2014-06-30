@@ -49,7 +49,7 @@
                <div class="form-group">
                     <label for="user_role">User Role </label>
                </div>  
-            {{  Form::select('role', array(client' => 'Client', 'developer' => 'Developer' , 'analyst'=>'Business Analyst'))  }}
+            {{  Form::select('role', array('client' => 'Client', 'developer' => 'Developer' , 'analyst'=>'Business Analyst'))  }}
    
              <br/><br/>
                 

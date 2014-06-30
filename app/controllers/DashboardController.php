@@ -16,15 +16,15 @@ class DashboardController extends \BaseController {
     }
 
     
-    public function getIndex() { 
+    public function getIndex() 
+     { 
         
                 //Check if user logged in
                 if (!\Auth::check()) {
                     return \Redirect::action(__CLASS__ . '@getLogin');
                  
-                }
-                else
-                {   
+                 } 
+                 else {   
                     //User is Authenticated
                     return View::make('dashboard', array ( "name" => \Auth::user()->getName()) );
                 }
@@ -72,8 +72,7 @@ class DashboardController extends \BaseController {
                             'name'               => \Input::get('name'),
                             'password'      => \Input::get('pass') ,
                             'email'             => \Input::get('email'),
-                            'user_role'    =>\Input::get('user_role'),
-                             'cap'                => \Input::get('user_role') 
+                            'role'               =>\Input::get('role')
                             ) ; 
          
          
@@ -83,7 +82,7 @@ class DashboardController extends \BaseController {
                              'name' => 'required',
                             'password' => 'required|min:4',
                             'email' => 'required|email|unique:users', 
-                             'user_role' =>'required'   
+                            'role' =>'required'   
                             )
                     ); 
 

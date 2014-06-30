@@ -41,16 +41,18 @@
                 <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
                 <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li>
                 <li><a href="blank-page.html"><i class="fa fa-file"></i> Blank Page</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i>
-                        Dropdown <b class="caret"></b></a>
+                
+                
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                        User Management <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Dropdown Item</a></li>
-                        <li><a href="#">Another Item</a></li>
-                        <li><a href="#">Third Item</a></li>
-                        <li><a href="#">Last Item</a></li>
+                        <li><a href="{{ url( 'adduser' ) }}"><i class="fa fa-file"></i> Add User </a></li>
+                         <li><a href="{{ url( 'listuser' ) }}"><i class="fa fa-file"></i> List User </a></li>
                     </ul>
                 </li>
+   
+                 
             </ul>
 
             <ul class="nav navbar-nav navbar-right navbar-user">
@@ -104,14 +106,14 @@
                     </ul>
                 </li>
                 <li class="dropdown user-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
-                            class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                         Hello , {{{ $name or 'User' }}}. <b  class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                         <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        <li><a href="{{ url('logout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
